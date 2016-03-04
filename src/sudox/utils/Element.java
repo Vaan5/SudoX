@@ -31,8 +31,12 @@ public class Element {
             throw new IllegalStateException("Field contains more than one value");
 
 
-        Integer[] array = (Integer[]) values.toArray();
+        Integer[] array = values.toArray(new Integer[values.size()]);
         return array[0];
+    }
+
+    public Integer[] getValues() {
+        return values.toArray(new Integer[values.size()]);
     }
 
     @Override
@@ -71,5 +75,9 @@ public class Element {
 
     public void setFixed(boolean fixed) {
         this.fixed = fixed;
+    }
+
+    public boolean contains(int value) {
+        return values.contains(value);
     }
 }

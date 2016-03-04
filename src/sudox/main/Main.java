@@ -1,5 +1,6 @@
 package sudox.main;
 
+import sudox.solvers.ConstraintPropagation;
 import sudox.utils.Grid;
 
 /**
@@ -8,9 +9,9 @@ import sudox.utils.Grid;
 public class Main {
 
     public static void main(String[] args) {
-        String grid1 = "003020600900305001001806400008102900700000008006708200002609500800203009005010300";
+        String problem = "003020600900305001001806400008102900700000008006708200002609500800203009005010300";
 
-        Grid g = new Grid(grid1);
-        System.out.println(g);
+        ConstraintPropagation solver = new ConstraintPropagation(problem);
+        System.out.println(solver.toString());
     }
 }

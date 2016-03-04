@@ -7,7 +7,7 @@ import sudox.utils.Grid;
  */
 public class ConstraintPropagation {
 
-    private Grid grid;
+    private Grid grid = new Grid();
 
     public ConstraintPropagation(String representation) {
         String filteredRepresentation = representation.replaceAll("[^\\d.]", "");
@@ -15,9 +15,11 @@ public class ConstraintPropagation {
         for (int i = 0; i < 81; i++) {
             int d = filteredRepresentation.charAt(i) - '0';
             if (d >= 1 && d <= 9)
-                grid.assign
-            else
-                values.add(new Element());
+                grid.assign(i, d);
         }
+    }
+
+    public String toString() {
+        return grid.toString();
     }
 }
